@@ -1,0 +1,7 @@
+{
+  "extends": "fullstack",
+  "rules": {
+    "semi": 1,
+    "id-length": 0
+  }
+}
