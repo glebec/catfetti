@@ -1,5 +1,7 @@
 # 🐱 Catfetti
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/glebec/catfetti.svg)](https://greenkeeper.io/)
+
 ### Meow meow meow, meow MEOW meow. Miao!
 
 Nominally, a very important app displaying catfetti.
