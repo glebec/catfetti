@@ -93,28 +93,32 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 var Particle = function () {
   function Particle() {
-    var pos = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : { x: 0, y: 0 };
-    var vel = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : { x: 0, y: 0 };
+    var posX = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+    var posY = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+    var velX = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 0;
+    var velY = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 0;
 
     _classCallCheck(this, Particle);
 
     this.marker = (0, _kitties2.default)();
     this.alpha = 1;
-    this.fade = Math.random() * 0.15 + 0.003;
     this.scale = Math.random() / 2 + 0.5;
     this.aim = Math.random() > 0.5 ? 1 : -1;
 
-    // particles should have indepedent pos and vel; Object.assign to be safe
-    this.pos = Object.assign({}, pos);
-    this.vel = Object.assign({}, vel);
+    this.posX = posX;
+    this.posY = posY;
+    this.velX = velX;
+    this.velY = velY;
+
     this.life = 1;
+    this.fade = Math.random() * 0.15 + 0.003;
   }
 
   _createClass(Particle, [{
     key: 'update',
     value: function update() {
-      this.pos.x += this.vel.x;
-      this.pos.y += this.vel.y;
+      this.posX += this.velX;
+      this.posY += this.velY;
     }
   }, {
     key: 'dead',
@@ -124,10 +128,10 @@ var Particle = function () {
   }, {
     key: 'render',
     value: function render(context) {
-      var angle = this.aim * (this.pos.x + this.pos.y) % 360;
+      var angle = this.aim * (this.posX + this.posY) % 360;
       _drawRotated2.default.call(context, this.marker, {
-        x: this.pos.x,
-        y: this.pos.y,
+        x: this.posX,
+        y: this.posY,
         angle: angle,
         alpha: this.alpha,
         scale: this.scale
@@ -631,21 +635,14 @@ function createRockets() {
 
 function createRocket() {
 
-  var origin = {
-    x: viewportWidth * 0.5,
-    y: viewportHeight + 10
-  };
+  var posX = viewportWidth * 0.5;
+  var posY = viewportHeight + 10;
+  var velX = Math.random() * 9 - 4.5;
+  var velY = 0;
+  var targetX = 0;
+  var targetY = 100 + Math.random() * 150;
 
-  var velocity = {
-    x: Math.random() * 9 - 4.5,
-    y: 0
-  };
-
-  var target = {
-    y: 100 + Math.random() * 150
-  };
-
-  var rocket = new _rocket2.default(origin, velocity, target);
+  var rocket = new _rocket2.default(posX, posY, velX, velY, targetX, targetY);
   particles.push(rocket);
 }
 
@@ -840,7 +837,7 @@ var Freefall = function (_Particle) {
   _createClass(Freefall, [{
     key: 'update',
     value: function update() {
-      this.vel.y += GRAVITY;
+      this.velY += GRAVITY;
 
       this.life -= this.fade;
       if (this.life < 0.5) this.alpha = Math.max(this.life * 2, 0);
@@ -888,14 +885,16 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var Rocket = function (_Particle) {
   _inherits(Rocket, _Particle);
 
-  function Rocket(pos, vel) {
-    var target = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : { y: 0 };
+  function Rocket(posX, posY, velX, velY) {
+    var targetX = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : 0;
+    var targetY = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : 0;
 
     _classCallCheck(this, Rocket);
 
-    var _this = _possibleConstructorReturn(this, (Rocket.__proto__ || Object.getPrototypeOf(Rocket)).call(this, pos, vel));
+    var _this = _possibleConstructorReturn(this, (Rocket.__proto__ || Object.getPrototypeOf(Rocket)).call(this, posX, posY, velX, velY));
 
-    _this.target = target;
+    _this.targetX = targetX;
+    _this.targetY = targetY;
     _this.easing = Math.random() * 0.02;
     return _this;
   }
@@ -903,9 +902,9 @@ var Rocket = function (_Particle) {
   _createClass(Rocket, [{
     key: 'update',
     value: function update() {
-      var distance = this.target.y - this.pos.y;
+      var distance = this.targetY - this.posY;
 
-      this.vel.y = distance * (0.03 + this.easing);
+      this.velY = distance * (0.03 + this.easing);
       this.life = Math.min(distance * distance * 0.00005, 1);
 
       _get(Rocket.prototype.__proto__ || Object.getPrototypeOf(Rocket.prototype), 'update', this).call(this);
@@ -920,11 +919,9 @@ var Rocket = function (_Particle) {
       while (count--) {
         var particleAngle = count * angle;
         var randomScalar = 4 + Math.random() * 4;
-        var velocity = {
-          x: Math.cos(particleAngle) * randomScalar,
-          y: Math.sin(particleAngle) * randomScalar
-        };
-        var particle = new _freefall2.default(this.pos, velocity);
+        var velX = Math.cos(particleAngle) * randomScalar;
+        var velY = Math.sin(particleAngle) * randomScalar;
+        var particle = new _freefall2.default(this.posX, this.posY, velX, velY);
         particles.push(particle);
       }
 
