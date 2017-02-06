@@ -3,17 +3,18 @@ import Freefall from 'src/js/particles/freefall';
 
 export default class Rocket extends Particle {
 
-  constructor (pos, vel, target = {y: 0}) {
-    super(pos, vel);
+  constructor (posX, posY, velX, velY, targetX = 0, targetY = 0) {
+    super(posX, posY, velX, velY);
 
-    this.target = target;
+    this.targetX = targetX;
+    this.targetY = targetY;
     this.easing  = Math.random() * 0.02;
   }
 
   update () {
-    const distance = this.target.y - this.pos.y;
+    const distance = this.targetY - this.posY;
 
-    this.vel.y = distance * (0.03 + this.easing);
+    this.velY = distance * (0.03 + this.easing);
     this.life = Math.min(distance * distance * 0.00005, 1);
 
     super.update();
@@ -27,11 +28,9 @@ export default class Rocket extends Particle {
     while (count--) {
       const particleAngle = count * angle;
       const randomScalar = 4 + Math.random() * 4;
-      const velocity = {
-        x: Math.cos(particleAngle) * randomScalar,
-        y: Math.sin(particleAngle) * randomScalar
-      };
-      const particle = new Freefall(this.pos, velocity);
+      const velX = Math.cos(particleAngle) * randomScalar;
+      const velY = Math.sin(particleAngle) * randomScalar
+      const particle = new Freefall(this.posX, this.posY, velX, velY);
       particles.push(particle);
     }
 

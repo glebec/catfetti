@@ -5,7 +5,7 @@ const GRAVITY = 0.10;
 class Freefall extends Particle {
 
   update () {
-    this.vel.y += GRAVITY;
+    this.velY += GRAVITY;
 
     this.life -= this.fade;
     if (this.life < 0.5) this.alpha = Math.max(this.life * 2, 0);

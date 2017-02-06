@@ -79,21 +79,14 @@ function createRockets () {
 
 function createRocket () {
 
-  const origin = {
-    x: viewportWidth * 0.5,
-    y: viewportHeight + 10
-  };
+  const posX = viewportWidth * 0.5;
+  const posY = viewportHeight + 10;
+  const velX = Math.random() * 9 - 4.5;
+  const velY = 0;
+  const targetX = 0;
+  const targetY = 100 + Math.random() * 150;
 
-  const velocity = {
-    x: Math.random() * 9 - 4.5,
-    y: 0
-  };
-
-  const target = {
-    y: 100 + Math.random() * 150
-  };
-
-  const rocket = new Rocket(origin, velocity, target);
+  const rocket = new Rocket(posX, posY, velX, velY, targetX, targetY);
   particles.push(rocket);
 
 }

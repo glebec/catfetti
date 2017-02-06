@@ -3,22 +3,24 @@ import drawRotatedImage from 'src/js/utils/draw-rotated';
 
 class Particle {
 
-  constructor (pos = {x: 0, y: 0}, vel = {x: 0, y: 0}) {
-    this.marker  = randomKittyImage();
-    this.alpha   = 1;
-    this.fade    = Math.random() * 0.15 + 0.003;
-    this.scale   = Math.random() / 2 + 0.5;
-    this.aim     = Math.random() > 0.5 ? 1 : -1;
+  constructor (posX = 0, posY = 0, velX = 0, velY = 0) {
+    this.marker = randomKittyImage();
+    this.alpha = 1;
+    this.scale = Math.random() / 2 + 0.5;
+    this.aim = Math.random() > 0.5 ? 1 : -1;
 
-    // particles should have indepedent pos and vel; Object.assign to be safe
-    this.pos = Object.assign({}, pos);
-    this.vel = Object.assign({}, vel);
+    this.posX = posX;
+    this.posY = posY;
+    this.velX = velX;
+    this.velY = velY;
+
     this.life = 1;
+    this.fade = Math.random() * 0.15 + 0.003;
   }
 
   update () {
-    this.pos.x += this.vel.x;
-    this.pos.y += this.vel.y;
+    this.posX += this.velX;
+    this.posY += this.velY;
   }
 
   dead () {
@@ -26,10 +28,10 @@ class Particle {
   }
 
   render (context) {
-    const angle = this.aim * (this.pos.x + this.pos.y) % 360;
+    const angle = this.aim * (this.posX + this.posY) % 360;
     drawRotatedImage.call(context, this.marker, {
-      x: this.pos.x,
-      y: this.pos.y,
+      x: this.posX,
+      y: this.posY,
       angle,
       alpha: this.alpha,
       scale: this.scale
