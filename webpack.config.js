@@ -40,6 +40,10 @@ module.exports = {
       test: /\.(jpe?g|png|gif|svg)$/,
       loader: 'file-loader',
       query: { name: 'img/[name].[ext]' }
+    }, {
+      test: /\.(m4a|mp3|wav|ogg)$/,
+      loader: 'file-loader',
+      query: { name: 'audio/[name].[ext]' }
     }]
   }
 };

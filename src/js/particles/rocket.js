@@ -1,5 +1,8 @@
 import Particle from 'src/js/particles/particle';
 import Freefall from 'src/js/particles/freefall';
+import randomMeow from 'src/js/data/meow';
+
+const fakeMeow = { play: () => {} };
 
 export default class Rocket extends Particle {
 
@@ -9,6 +12,8 @@ export default class Rocket extends Particle {
     this.targetX = targetX;
     this.targetY = targetY;
     this.easing  = Math.random() * 0.02;
+
+    this.meowAudio = Math.random() < 0.5 ? randomMeow() : fakeMeow;
   }
 
   update () {
@@ -20,7 +25,13 @@ export default class Rocket extends Particle {
     super.update();
   }
 
+  meow () {
+    this.meowAudio.play();
+  }
+
   explode () {
+    this.meow();
+
     let count = 100;
     const angle = (Math.PI * 2) / count;
     const particles = [];
