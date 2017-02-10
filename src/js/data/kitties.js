@@ -5,14 +5,12 @@ import kittyLL from 'src/img/kitty-ll.png';
 import kittyLM from 'src/img/kitty-lm.png';
 import kittyLR from 'src/img/kitty-lr.png';
 
-const kittySrcs = [
+const kittyImages = [
   kittyUL, kittyUM, kittyUR,
   kittyLL, kittyLM, kittyLR
-];
-
-const kittyImages = Array(6).fill(null).map((_, idx) => {
+].map(src => {
   const kitty = new Image();
-  kitty.src = kittySrcs[idx];
+  kitty.src = src;
   return kitty;
 });
 
