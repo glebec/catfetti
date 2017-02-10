@@ -781,11 +781,9 @@ var _kittyLr2 = _interopRequireDefault(_kittyLr);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var kittySrcs = [_kittyUl2.default, _kittyUm2.default, _kittyUr2.default, _kittyLl2.default, _kittyLm2.default, _kittyLr2.default];
-
-var kittyImages = Array(6).fill(null).map(function (_, idx) {
+var kittyImages = [_kittyUl2.default, _kittyUm2.default, _kittyUr2.default, _kittyLl2.default, _kittyLm2.default, _kittyLr2.default].map(function (src) {
   var kitty = new Image();
-  kitty.src = kittySrcs[idx];
+  kitty.src = src;
   return kitty;
 });
 
