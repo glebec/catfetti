@@ -6,7 +6,6 @@ import meowSrc4 from 'src/audio/m4.m4a';
 const meow = src => {
   const audio = document.createElement('audio');
   audio.src = src;
-  // audio.load();
   return audio;
 };
 
