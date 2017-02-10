@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 24);
+/******/ 	return __webpack_require__(__webpack_require__.s = 29);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -83,7 +83,7 @@ var _kitties = __webpack_require__(8);
 
 var _kitties2 = _interopRequireDefault(_kitties);
 
-var _drawRotated = __webpack_require__(11);
+var _drawRotated = __webpack_require__(12);
 
 var _drawRotated2 = _interopRequireDefault(_drawRotated);
 
@@ -204,7 +204,7 @@ module.exports = function() {
 /* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(global) {var now = __webpack_require__(21)
+/* WEBPACK VAR INJECTION */(function(global) {var now = __webpack_require__(26)
   , root = typeof window === 'undefined' ? global : window
   , vendors = ['moz', 'webkit']
   , suffix = 'AnimationFrame'
@@ -277,7 +277,7 @@ module.exports.polyfill = function() {
   root.cancelAnimationFrame = caf
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(23)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(28)))
 
 /***/ }),
 /* 3 */
@@ -547,11 +547,11 @@ var _raf = __webpack_require__(2);
 
 var _raf2 = _interopRequireDefault(_raf);
 
-var _resize = __webpack_require__(12);
+var _resize = __webpack_require__(13);
 
 var _resize2 = _interopRequireDefault(_resize);
 
-var _rocket = __webpack_require__(10);
+var _rocket = __webpack_require__(11);
 
 var _rocket2 = _interopRequireDefault(_rocket);
 
@@ -699,7 +699,7 @@ module.exports = __webpack_require__.p + "index.html";
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(13);
+var content = __webpack_require__(14);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
 var update = __webpack_require__(3)(content, {});
@@ -725,7 +725,7 @@ if(false) {
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(14);
+var content = __webpack_require__(15);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
 var update = __webpack_require__(3)(content, {});
@@ -755,27 +755,27 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _kittyUl = __webpack_require__(18);
+var _kittyUl = __webpack_require__(19);
 
 var _kittyUl2 = _interopRequireDefault(_kittyUl);
 
-var _kittyUm = __webpack_require__(19);
+var _kittyUm = __webpack_require__(20);
 
 var _kittyUm2 = _interopRequireDefault(_kittyUm);
 
-var _kittyUr = __webpack_require__(20);
+var _kittyUr = __webpack_require__(21);
 
 var _kittyUr2 = _interopRequireDefault(_kittyUr);
 
-var _kittyLl = __webpack_require__(15);
+var _kittyLl = __webpack_require__(16);
 
 var _kittyLl2 = _interopRequireDefault(_kittyLl);
 
-var _kittyLm = __webpack_require__(16);
+var _kittyLm = __webpack_require__(17);
 
 var _kittyLm2 = _interopRequireDefault(_kittyLm);
 
-var _kittyLr = __webpack_require__(17);
+var _kittyLr = __webpack_require__(18);
 
 var _kittyLr2 = _interopRequireDefault(_kittyLr);
 
@@ -796,6 +796,50 @@ exports.default = randomKittyImage;
 
 /***/ }),
 /* 9 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _m = __webpack_require__(22);
+
+var _m2 = _interopRequireDefault(_m);
+
+var _m3 = __webpack_require__(23);
+
+var _m4 = _interopRequireDefault(_m3);
+
+var _m5 = __webpack_require__(24);
+
+var _m6 = _interopRequireDefault(_m5);
+
+var _m7 = __webpack_require__(25);
+
+var _m8 = _interopRequireDefault(_m7);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var meow = function meow(src) {
+  var audio = document.createElement('audio');
+  audio.src = src;
+  // audio.load();
+  return audio;
+};
+
+var meows = [_m2.default, _m4.default, _m6.default, _m8.default].map(meow);
+
+var randomMeow = function randomMeow() {
+  return meows[Math.floor(Math.random() * meows.length)];
+};
+
+exports.default = randomMeow;
+
+/***/ }),
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -850,7 +894,7 @@ var Freefall = function (_Particle) {
 exports.default = Freefall;
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -868,9 +912,13 @@ var _particle = __webpack_require__(0);
 
 var _particle2 = _interopRequireDefault(_particle);
 
-var _freefall = __webpack_require__(9);
+var _freefall = __webpack_require__(10);
 
 var _freefall2 = _interopRequireDefault(_freefall);
+
+var _meow = __webpack_require__(9);
+
+var _meow2 = _interopRequireDefault(_meow);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -879,6 +927,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var fakeMeow = { play: function play() {} };
 
 var Rocket = function (_Particle) {
   _inherits(Rocket, _Particle);
@@ -894,6 +944,8 @@ var Rocket = function (_Particle) {
     _this.targetX = targetX;
     _this.targetY = targetY;
     _this.easing = Math.random() * 0.02;
+
+    _this.meowAudio = Math.random() < 0.5 ? (0, _meow2.default)() : fakeMeow;
     return _this;
   }
 
@@ -908,8 +960,15 @@ var Rocket = function (_Particle) {
       _get(Rocket.prototype.__proto__ || Object.getPrototypeOf(Rocket.prototype), 'update', this).call(this);
     }
   }, {
+    key: 'meow',
+    value: function meow() {
+      this.meowAudio.play();
+    }
+  }, {
     key: 'explode',
     value: function explode() {
+      this.meow();
+
       var count = 100;
       var angle = Math.PI * 2 / count;
       var particles = [];
@@ -933,7 +992,7 @@ var Rocket = function (_Particle) {
 exports.default = Rocket;
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -981,7 +1040,7 @@ function drawRotatedImage(image, _ref) {
 exports.default = drawRotatedImage;
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1021,7 +1080,7 @@ function addOptimizedResizeListener(func) {
 }
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)();
@@ -1035,7 +1094,7 @@ exports.push([module.i, "body{margin:0}aside,details,main,summary{display:block}
 
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)();
@@ -1049,43 +1108,67 @@ exports.push([module.i, "#main {\n  padding: 20px;\n  text-align: center;\n}\n\n
 
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "img/kitty-ll.png";
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "img/kitty-lm.png";
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "img/kitty-lr.png";
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "img/kitty-ul.png";
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "img/kitty-um.png";
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "img/kitty-ur.png";
 
 /***/ }),
-/* 21 */
+/* 22 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "audio/m1.m4a";
+
+/***/ }),
+/* 23 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "audio/m2.m4a";
+
+/***/ }),
+/* 24 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "audio/m3.m4a";
+
+/***/ }),
+/* 25 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "audio/m4.m4a";
+
+/***/ }),
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(process) {// Generated by CoffeeScript 1.7.1
@@ -1121,10 +1204,10 @@ module.exports = __webpack_require__.p + "img/kitty-ur.png";
 
 }).call(this);
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(22)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(27)))
 
 /***/ }),
-/* 22 */
+/* 27 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -1310,7 +1393,7 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 23 */
+/* 28 */
 /***/ (function(module, exports) {
 
 var g;
@@ -1337,7 +1420,7 @@ module.exports = g;
 
 
 /***/ }),
-/* 24 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
