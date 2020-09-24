@@ -6,9 +6,9 @@
 /******/ 	function __webpack_require__(moduleId) {
 /******/
 /******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId])
+/******/ 		if(installedModules[moduleId]) {
 /******/ 			return installedModules[moduleId].exports;
-/******/
+/******/ 		}
 /******/ 		// Create a new module (and put it into the cache)
 /******/ 		var module = installedModules[moduleId] = {
 /******/ 			i: moduleId,
@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 29);
+/******/ 	return __webpack_require__(__webpack_require__.s = 10);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -83,7 +83,7 @@ var _kitties = __webpack_require__(8);
 
 var _kitties2 = _interopRequireDefault(_kitties);
 
-var _drawRotated = __webpack_require__(12);
+var _drawRotated = __webpack_require__(13);
 
 var _drawRotated2 = _interopRequireDefault(_drawRotated);
 
@@ -204,7 +204,7 @@ module.exports = function() {
 /* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(global) {var now = __webpack_require__(26)
+/* WEBPACK VAR INJECTION */(function(global) {var now = __webpack_require__(27)
   , root = typeof window === 'undefined' ? global : window
   , vendors = ['moz', 'webkit']
   , suffix = 'AnimationFrame'
@@ -272,12 +272,15 @@ module.exports = function(fn) {
 module.exports.cancel = function() {
   caf.apply(root, arguments)
 }
-module.exports.polyfill = function() {
-  root.requestAnimationFrame = raf
-  root.cancelAnimationFrame = caf
+module.exports.polyfill = function(object) {
+  if (!object) {
+    object = root;
+  }
+  object.requestAnimationFrame = raf
+  object.cancelAnimationFrame = caf
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(28)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(29)))
 
 /***/ }),
 /* 3 */
@@ -296,7 +299,7 @@ var stylesInDom = {},
 		};
 	},
 	isOldIE = memoize(function() {
-		return /msie [6-9]\b/.test(window.navigator.userAgent.toLowerCase());
+		return /msie [6-9]\b/.test(self.navigator.userAgent.toLowerCase());
 	}),
 	getHeadElement = memoize(function () {
 		return document.head || document.getElementsByTagName("head")[0];
@@ -547,11 +550,11 @@ var _raf = __webpack_require__(2);
 
 var _raf2 = _interopRequireDefault(_raf);
 
-var _resize = __webpack_require__(13);
+var _resize = __webpack_require__(14);
 
 var _resize2 = _interopRequireDefault(_resize);
 
-var _rocket = __webpack_require__(11);
+var _rocket = __webpack_require__(12);
 
 var _rocket2 = _interopRequireDefault(_rocket);
 
@@ -699,7 +702,7 @@ module.exports = __webpack_require__.p + "index.html";
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(14);
+var content = __webpack_require__(15);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
 var update = __webpack_require__(3)(content, {});
@@ -708,8 +711,8 @@ if(content.locals) module.exports = content.locals;
 if(false) {
 	// When the styles change, update the <style> tags
 	if(!content.locals) {
-		module.hot.accept("!!./../../css-loader/index.js!./furtive.min.css", function() {
-			var newContent = require("!!./../../css-loader/index.js!./furtive.min.css");
+		module.hot.accept("!!../../css-loader/index.js!./furtive.min.css", function() {
+			var newContent = require("!!../../css-loader/index.js!./furtive.min.css");
 			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 			update(newContent);
 		});
@@ -725,7 +728,7 @@ if(false) {
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(15);
+var content = __webpack_require__(16);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
 var update = __webpack_require__(3)(content, {});
@@ -734,8 +737,8 @@ if(content.locals) module.exports = content.locals;
 if(false) {
 	// When the styles change, update the <style> tags
 	if(!content.locals) {
-		module.hot.accept("!!./../../node_modules/css-loader/index.js!./style.css", function() {
-			var newContent = require("!!./../../node_modules/css-loader/index.js!./style.css");
+		module.hot.accept("!!../../node_modules/css-loader/index.js!./style.css", function() {
+			var newContent = require("!!../../node_modules/css-loader/index.js!./style.css");
 			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 			update(newContent);
 		});
@@ -755,27 +758,27 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _kittyUl = __webpack_require__(19);
+var _kittyUl = __webpack_require__(20);
 
 var _kittyUl2 = _interopRequireDefault(_kittyUl);
 
-var _kittyUm = __webpack_require__(20);
+var _kittyUm = __webpack_require__(21);
 
 var _kittyUm2 = _interopRequireDefault(_kittyUm);
 
-var _kittyUr = __webpack_require__(21);
+var _kittyUr = __webpack_require__(22);
 
 var _kittyUr2 = _interopRequireDefault(_kittyUr);
 
-var _kittyLl = __webpack_require__(16);
+var _kittyLl = __webpack_require__(17);
 
 var _kittyLl2 = _interopRequireDefault(_kittyLl);
 
-var _kittyLm = __webpack_require__(17);
+var _kittyLm = __webpack_require__(18);
 
 var _kittyLm2 = _interopRequireDefault(_kittyLm);
 
-var _kittyLr = __webpack_require__(18);
+var _kittyLr = __webpack_require__(19);
 
 var _kittyLr2 = _interopRequireDefault(_kittyLr);
 
@@ -805,19 +808,19 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _m = __webpack_require__(22);
+var _m = __webpack_require__(23);
 
 var _m2 = _interopRequireDefault(_m);
 
-var _m3 = __webpack_require__(23);
+var _m3 = __webpack_require__(24);
 
 var _m4 = _interopRequireDefault(_m3);
 
-var _m5 = __webpack_require__(24);
+var _m5 = __webpack_require__(25);
 
 var _m6 = _interopRequireDefault(_m5);
 
-var _m7 = __webpack_require__(25);
+var _m7 = __webpack_require__(26);
 
 var _m8 = _interopRequireDefault(_m7);
 
@@ -826,7 +829,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var meow = function meow(src) {
   var audio = document.createElement('audio');
   audio.src = src;
-  // audio.load();
   return audio;
 };
 
@@ -840,6 +842,32 @@ exports.default = randomMeow;
 
 /***/ }),
 /* 10 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+__webpack_require__(5);
+
+__webpack_require__(6);
+
+__webpack_require__(7);
+
+var _catfetti = __webpack_require__(4);
+
+var _catfetti2 = _interopRequireDefault(_catfetti);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+window.addEventListener('load', function init() {
+  window.removeEventListener('load', init, false);
+  (0, _catfetti2.default)();
+});
+
+console.log('Meow!');
+
+/***/ }),
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -894,7 +922,7 @@ var Freefall = function (_Particle) {
 exports.default = Freefall;
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -912,7 +940,7 @@ var _particle = __webpack_require__(0);
 
 var _particle2 = _interopRequireDefault(_particle);
 
-var _freefall = __webpack_require__(10);
+var _freefall = __webpack_require__(11);
 
 var _freefall2 = _interopRequireDefault(_freefall);
 
@@ -992,7 +1020,7 @@ var Rocket = function (_Particle) {
 exports.default = Rocket;
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1040,7 +1068,7 @@ function drawRotatedImage(image, _ref) {
 exports.default = drawRotatedImage;
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1080,7 +1108,7 @@ function addOptimizedResizeListener(func) {
 }
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)();
@@ -1094,7 +1122,7 @@ exports.push([module.i, "body{margin:0}aside,details,main,summary{display:block}
 
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)();
@@ -1108,72 +1136,72 @@ exports.push([module.i, "#main {\n  padding: 20px;\n  text-align: center;\n}\n\n
 
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "img/kitty-ll.png";
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "img/kitty-lm.png";
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "img/kitty-lr.png";
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "img/kitty-ul.png";
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "img/kitty-um.png";
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "img/kitty-ur.png";
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "audio/m1.m4a";
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "audio/m2.m4a";
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "audio/m3.m4a";
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "audio/m4.m4a";
 
 /***/ }),
-/* 26 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(process) {// Generated by CoffeeScript 1.7.1
+/* WEBPACK VAR INJECTION */(function(process) {// Generated by CoffeeScript 1.12.2
 (function() {
-  var getNanoSeconds, hrtime, loadTime;
+  var getNanoSeconds, hrtime, loadTime, moduleLoadTime, nodeLoadTime, upTime;
 
   if ((typeof performance !== "undefined" && performance !== null) && performance.now) {
     module.exports = function() {
@@ -1181,7 +1209,7 @@ module.exports = __webpack_require__.p + "audio/m4.m4a";
     };
   } else if ((typeof process !== "undefined" && process !== null) && process.hrtime) {
     module.exports = function() {
-      return (getNanoSeconds() - loadTime) / 1e6;
+      return (getNanoSeconds() - nodeLoadTime) / 1e6;
     };
     hrtime = process.hrtime;
     getNanoSeconds = function() {
@@ -1189,7 +1217,9 @@ module.exports = __webpack_require__.p + "audio/m4.m4a";
       hr = hrtime();
       return hr[0] * 1e9 + hr[1];
     };
-    loadTime = getNanoSeconds();
+    moduleLoadTime = getNanoSeconds();
+    upTime = process.uptime() * 1e9;
+    nodeLoadTime = moduleLoadTime - upTime;
   } else if (Date.now) {
     module.exports = function() {
       return Date.now() - loadTime;
@@ -1204,10 +1234,12 @@ module.exports = __webpack_require__.p + "audio/m4.m4a";
 
 }).call(this);
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(27)))
+//# sourceMappingURL=performance-now.js.map
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(28)))
 
 /***/ }),
-/* 27 */
+/* 28 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -1380,6 +1412,10 @@ process.off = noop;
 process.removeListener = noop;
 process.removeAllListeners = noop;
 process.emit = noop;
+process.prependListener = noop;
+process.prependOnceListener = noop;
+
+process.listeners = function (name) { return [] }
 
 process.binding = function (name) {
     throw new Error('process.binding is not supported');
@@ -1393,7 +1429,7 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 28 */
+/* 29 */
 /***/ (function(module, exports) {
 
 var g;
@@ -1418,32 +1454,6 @@ try {
 
 module.exports = g;
 
-
-/***/ }),
-/* 29 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-__webpack_require__(5);
-
-__webpack_require__(6);
-
-__webpack_require__(7);
-
-var _catfetti = __webpack_require__(4);
-
-var _catfetti2 = _interopRequireDefault(_catfetti);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-window.addEventListener('load', function init() {
-  window.removeEventListener('load', init, false);
-  (0, _catfetti2.default)();
-});
-
-console.log('Meow!');
 
 /***/ })
 /******/ ]);
