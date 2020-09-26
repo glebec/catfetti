@@ -1,13 +1,15 @@
-import kittyUL from 'src/img/kitty-ul.png';
-import kittyUM from 'src/img/kitty-um.png';
-import kittyUR from 'src/img/kitty-ur.png';
-import kittyLL from 'src/img/kitty-ll.png';
-import kittyLM from 'src/img/kitty-lm.png';
-import kittyLR from 'src/img/kitty-lr.png';
+import kittyUL from 'src/img/colorful/kitty-ul.png';
+import kittyUM from 'src/img/colorful/kitty-um.png';
+import kittyUR from 'src/img/colorful/kitty-ur.png';
+import kittyLL from 'src/img/colorful/kitty-ll.png';
+import kittyLM from 'src/img/colorful/kitty-lm.png';
+import kittyLR from 'src/img/colorful/kitty-lr.png';
+import kittyLLM from 'src/img/colorful/kitty-llm.png';
 
 const kittyImages = [
   kittyUL, kittyUM, kittyUR,
-  kittyLL, kittyLM, kittyLR
+  kittyLL, kittyLM, kittyLR,
+  kittyLLM
 ].map(src => {
   const kitty = new Image();
   kitty.src = src;
